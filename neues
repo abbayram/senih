@@ -236,8 +236,6 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <img src="https://images.unsplash.com/photo-1479767574301-a01c78234a0c?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHw0fHx0YXR0b28lMjBhcnR8ZW58MHx8fHwxNzQ1NTEyNzMwfDA&ixlib=rb-4.0.3&orientation=landscape?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Tattoo Artwork" class="gallery-img w-full">
-                <img src="https://scontent-ber1-1.cdninstagram.com/v/t51.2885-15/486199753_18493804486014095_2655515149489437906_n.jpg?..." 
-                         alt="Artistic Tattoo" class="gallery-img w-full">
                 <img src="https://images.unsplash.com/photo-1482375702222-03a768d5ea3c?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHw1fHx0YXR0b28lMjBhcnR8ZW58MHx8fHwxNzQ1NTEyNzMwfDA&ixlib=rb-4.0.3&orientation=portrait?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Tattoo Design" class="gallery-img w-full">
                 <img src="https://images.unsplash.com/photo-1629276299414-a6f6d6403fd2?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHwxMnx8bWV0YWwlMjBtdXNpY3xlbnwwfHx8fDE3NDQ2NDY4MTd8MA&ixlib=rb-4.0.3&orientation=landscape?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Music Production" class="gallery-img w-full">
                 <img src="assets/images/hero.jpg" alt="Neues Tattoo-Bild" class="gallery-img w-full">   
