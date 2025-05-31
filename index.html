@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senih - Tattoo-Kunst & Elektro-Metal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f5f2;
+            color: #3a3a3a;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1513078094721-e7b6e0394a6a?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHwxM3x8dGF0dG9vJTIwYXJ0fGVufDB8fHx8MTc0NTUxMjczMHww&ixlib=rb-4.0.3&orientation=portrait?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280');
+            background-size: cover;
+            background-position: center;
+        }
+        .accent {
+            color: #a87b50;
+        }
+        .btn-primary {
+            background-color: #a87b50;
+            color: white;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #8a6642;
+            transform: translateY(-2px);
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+        .gallery-img {
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #a87b50;
+            transition: width 0.3s;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        .testimonial {
+            background-color: #f1ebe4;
+        }
+        .service-icon {
+            color: #a87b50;
+        }
+        .range-slider {
+            -webkit-appearance: none;
+            height: 10px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+        }
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #a87b50;
+            cursor: pointer;
+        }
+        .range-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #a87b50;
+            cursor: pointer;
+        }
+        .calculator-container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            border-top: 5px solid #a87b50;
+        }
+        .price-tag {
+            background-color: #a87b50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            bottom: -10px;
+            left: 0;
+            background-color: #a87b50;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-10 px-6 py-4 flex justify-between items-center shadow-md">
+        <div class="flex items-center">
+            <h1 class="text-2xl font-bold">SENIH</h1>
+        </div>
+        <div class="hidden md:flex space-x-8">
+            <a href="#home" class="nav-link font-medium">Home</a>
+            <a href="#services" class="nav-link font-medium">Dienstleistungen</a>
+            <a href="#gallery" class="nav-link font-medium">Galerie</a>
+            <a href="#testimonials" class="nav-link font-medium">Testimonials</a>
+            <a href="#calculator" class="nav-link font-medium">Preisrechner</a>
+            <a href="#contact" class="nav-link font-medium">Kontakt</a>
+        </div>
+        <button class="md:hidden focus:outline-none">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero h-screen flex items-center justify-center text-white">
+        <div class="container mx-auto text-center px-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">Malerei trifft auf Tattoo <br> und Elektro-Metall</h1>
+            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Tauche ein in die faszinierende Ästhetik, wo Tattoo-Kunst und Elektro-Metal-Sounds verschmelzen – deine Visionen, meisterhaft verwirklicht.</p>
+            <a href="#services" class="btn-primary px-8 py-3 rounded-full text-lg font-medium">Entdecke mehr</a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h2 class="text-4xl font-bold mb-6 section-title">Kunst, Klang und Haut vereint</h2>
+                    <p class="text-lg mb-6 leading-relaxed">Ein Portfolio, das Tattoo-Kunst und Elektro-Metal verbindet – voller Ausdruck, Leidenschaft und Individualität. Wir erschaffen einzigartige Erlebnisse, die alle Sinne ansprechen.</p>
+                    <p class="text-lg mb-6 leading-relaxed">Jedes Projekt ist eine Reise, bei der wir gemeinsam Ihre Vision zum Leben erwecken – sei es auf der Haut oder in musikalischen Kompositionen.</p>
+                    <a href="#services" class="btn-primary inline-block px-6 py-3 rounded-full">Unsere Dienstleistungen</a>
+                </div>
+                <div class="md:w-1/2 md:pl-10">
+                    <img src="https://images.unsplash.com/photo-1629276299414-a6f6d6403fd2?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHwxMnx8bWV0YWwlMjBtdXNpY3xlbnwwfHx8fDE3NDQ2NDY4MTd8MA&ixlib=rb-4.0.3&orientation=landscape?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Elektro-Metal Musik" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 section-title mx-auto">Kunstvolle Tattoos und pulsierende Musik vereint</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Service 1 -->
+                <div class="card p-8">
+                    <div class="text-4xl service-icon mb-6">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Individuelles Tattoo-Design</h3>
+                    <p class="text-gray-600 mb-6">Jedes Design wird persönlich auf Ihre Wünsche und Geschichten abgestimmt. Wir nehmen uns Zeit, Ihr perfektes Tattoo zu entwickeln – einzigartig wie Sie selbst.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Persönliche Beratung</li>
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Maßgeschneiderte Entwürfe</li>
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Verschiedene Stile beherrschend</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="card p-8">
+                    <div class="text-4xl service-icon mb-6">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Musikproduktion & Mixing</h3>
+                    <p class="text-gray-600 mb-6">Wir kreieren einzigartige Elektro-Metal-Klänge nach Ihren Vorstellungen. Vom Konzept bis zum fertigen Track – Ihre musikalische Vision wird Realität.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Professionelles Recording</li>
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Kreative Arrangements</li>
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Hochwertiges Mixing & Mastering</li>
+                    </ul>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="card p-8">
+                    <div class="text-4xl service-icon mb-6">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Kollaborationen & Projekte</h3>
+                    <p class="text-gray-600 mb-6">Gemeinsam entwickeln wir kreative Konzepte und setzen sie eindrucksvoll um. Wir verbinden verschiedene Kunstformen zu einem harmonischen Ganzen.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Kunstübergreifende Projekte</li>
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Events & Ausstellungen</li>
+                        <li class="flex items-center"><i class="fas fa-check accent mr-2"></i> Community-Building</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 section-title mx-auto">Unsere Arbeiten</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <img src="https://images.unsplash.com/photo-1479767574301-a01c78234a0c?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHw0fHx0YXR0b28lMjBhcnR8ZW58MHx8fHwxNzQ1NTEyNzMwfDA&ixlib=rb-4.0.3&orientation=landscape?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Tattoo Artwork" class="gallery-img w-full">
+                <img src="https://images.unsplash.com/photo-1482375702222-03a768d5ea3c?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHw1fHx0YXR0b28lMjBhcnR8ZW58MHx8fHwxNzQ1NTEyNzMwfDA&ixlib=rb-4.0.3&orientation=portrait?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Tattoo Design" class="gallery-img w-full">
+                <img src="https://images.unsplash.com/photo-1629276299414-a6f6d6403fd2?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHwxMnx8bWV0YWwlMjBtdXNpY3xlbnwwfHx8fDE3NDQ2NDY4MTd8MA&ixlib=rb-4.0.3&orientation=landscape?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Music Production" class="gallery-img w-full">
+                <img src="https://images.unsplash.com/photo-1513078094721-e7b6e0394a6a?ixid=M3w0MzUxNjF8MHwxfHNlYXJjaHwxM3x8dGF0dG9vJTIwYXJ0fGVufDB8fHx8MTc0NTUxMjczMHww&ixlib=rb-4.0.3&orientation=portrait?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Artistic Tattoo" class="gallery-img w-full">
+                <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Client Portrait" class="gallery-img w-full">
+                <div class="bg-gray-100 gallery-img w-full flex items-center justify-center">
+                    <span class="text-xl font-medium text-center px-6">Mehr Arbeiten in unserem Studio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-20 testimonial">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 section-title mx-auto">Das sagen unsere Kunden</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-10 relative">
+                <div class="text-5xl text-gray-200 absolute top-4 left-4">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <div class="relative z-10">
+                    <p class="text-lg mb-8 leading-relaxed italic">Die präzise Tattoo-Kunst und die einzigartigen Elektro-Metal-Tracks haben mich vollkommen begeistert. Das Team versteht es perfekt, meine Ideen aufzugreifen und in beeindruckende Kunstwerke umzusetzen.</p>
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?fit=crop&crop=entropy%2Cfaces&auto=format%2Ccompress&w=1280" alt="Hüseyin Demir" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-bold text-lg">Hüseyin Demir</h4>
+                            <p class="text-gray-600">Kunstliebhaber und Musiker</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tattoo Price Calculator Section -->
+    <section id="calculator" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-6 section-title mx-auto">Tattoo-Preisrechner</h2>
+            <p class="text-lg text-center mb-16 max-w-2xl mx-auto">Berechnen Sie den ungefähren Preis für Ihr Wunsch-Tattoo anhand verschiedener Faktoren wie Größe, Farben und Detailgrad.</p>
+            
+            <div class="calculator-container max-w-4xl mx-auto p-8 md:p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-8">Tattoo-Details</h3>
+                        
+                        <!-- Size Selection -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-medium mb-3">Größe</label>
+                            <div class="flex flex-col space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Klein</span>
+                                    <span id="sizeValue">10 cm</span>
+                                    <span>Groß</span>
+                                </div>
+                                <input type="range" id="sizeSlider" min="5" max="30" value="10" class="range-slider">
+                            </div>
+                            <div class="text-sm text-gray-500 mt-2">Von 5 cm bis 30 cm (längste Seite)</div>
+                        </div>
+                        
+                        <!-- Colors Selection -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-medium mb-3">Farben</label>
+                            <select id="colorSelect" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                <option value="black">Nur Schwarz</option>
+                                <option value="blackGray">Schwarz & Grau</option>
+                                <option value="few">Wenige Farben (2-3)</option>
+                                <option value="many">Viele Farben (4+)</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Detail Level -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-medium mb-3">Detailgrad</label>
+                            <div class="flex flex-col space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Einfach</span>
+                                    <span id="detailValue">Mittel</span>
+                                    <span>Komplex</span>
+                                </div>
+                                <input type="range" id="detailSlider" min="1" max="5" value="3" class="range-slider">
+                            </div>
+                        </div>
+                        
+                        <!-- Placement -->
+                        <div class="mb-8">
+                            <label class="block text-lg font-medium mb-3">Platzierung</label>
+                            <select id="placementSelect" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                <option value="standard">Standard (Arm, Bein, Rücken)</option>
+                                <option value="difficult">Schwierig (Rippen, Hals, Hände)</option>
+                                <option value="veryDifficult">Sehr schwierig (Kopf, Füße, Intimbereiche)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-8">Preisübersicht</h3>
+                        
+                        <div class="bg-gray-100 p-6 rounded-lg mb-8">
+                            <div class="flex justify-between items-center mb-4">
+                                <span>Grundpreis (Größe):</span>
+                                <span id="basePrice" class="font-semibold">€80</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span>Farbzuschlag:</span>
+                                <span id="colorPrice" class="font-semibold">€0</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span>Detailzuschlag:</span>
+                                <span id="detailPrice" class="font-semibold">€30</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-4">
+                                <span>Platzierungszuschlag:</span>
+                                <span id="placementPrice" class="font-semibold">€0</span>
+                            </div>
+                            <div class="border-t border-gray-300 mt-4 pt-4 flex justify-between items-center">
+                                <span class="font-bold">Gesamtpreis:</span>
+                                <span id="totalPrice" class="price-tag text-xl">€110</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-amber-50 p-6 rounded-lg border-l-4 border-amber-400">
+                            <h4 class="font-bold text-lg mb-2">Bitte beachten:</h4>
+                            <p class="text-gray-700">Dies ist eine grobe Preisschätzung. Der endgültige Preis kann nach persönlicher Beratung variieren. Für ein verbindliches Angebot vereinbaren Sie bitte einen Termin in unserem Studio.</p>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="#contact" class="btn-primary inline-block px-6 py-3 rounded-full w-full text-center">Termin vereinbaren</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-16 section-title mx-auto">Kontakt</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Schreiben Sie uns</h3>
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Ihr Name">
+                        </div>
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2">E-Mail</label>
+                            <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Ihre E-Mail-Adresse">
+                        </div>
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2">Betreff</label>
+                            <select id="subject" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400">
+                                <option value="tattoo">Tattoo-Anfrage</option>
+                                <option value="music">Musik-Produktion</option>
+                                <option value="collaboration">Kollaboration</option>
+                                <option value="other">Sonstiges</option>
+                            </select>
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2">Nachricht</label>
+                            <textarea id="message" rows="5" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-400" placeholder="Ihre Nachricht an uns..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary px-6 py-3 rounded-full w-full">Nachricht senden</button>
+                    </form>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Besuch uns</h3>
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+                        <h4 class="font-bold text-lg mb-4">Studio-Adresse</h4>
+                        <p class="mb-2"><i class="fas fa-map-marker-alt mr-3 accent"></i> Musterstraße 123, 12345 Musterstadt</p>
+                        <p class="mb-2"><i class="fas fa-phone mr-3 accent"></i> +49 123 456789</p>
+                        <p class="mb-6"><i class="fas fa-envelope mr-3 accent"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a5cccbc3cae5d6c0cbcccd8bc0d0">[email&#160;protected]</a></p>
+                        
+                        <h4 class="font-bold text-lg mb-4">Öffnungszeiten</h4>
+                        <p class="mb-1">Montag - Freitag: 12:00 - 20:00 Uhr</p>
+                        <p class="mb-1">Samstag: 12:00 - 18:00 Uhr</p>
+                        <p class="mb-6">Sonntag: Geschlossen</p>
+                        
+                        <h4 class="font-bold text-lg mb-4">Social Media</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-2xl text-gray-700 hover:text-amber-600 transition-colors"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-2xl text-gray-700 hover:text-amber-600 transition-colors"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-2xl text-gray-700 hover:text-amber-600 transition-colors"><i class="fab fa-spotify"></i></a>
+                            <a href="#" class="text-2xl text-gray-700 hover:text-amber-600 transition-colors"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                        <p class="text-center px-4">Hier würde eine Karte angezeigt werden</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">SENIH</h3>
+                    <p class="mb-4">Wo Kunst, Musik und Tattoos verschmelzen.</p>
+                    <p class="text-sm text-gray-400">&copy; 2023 Senih. Alle Rechte vorbehalten.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-amber-400 transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-amber-400 transition-colors">Dienstleistungen</a></li>
+                        <li><a href="#gallery" class="hover:text-amber-400 transition-colors">Galerie</a></li>
+                        <li><a href="#calculator" class="hover:text-amber-400 transition-colors">Preisrechner</a></li>
+                        <li><a href="#contact" class="hover:text-amber-400 transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="mb-4">Abonnieren Sie unseren Newsletter für Updates zu neuen Projekten und Angeboten.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Ihre E-Mail" class="px-4 py-2 rounded-l-md focus:outline-none flex-grow">
+                        <button type="submit" class="bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-r-md transition-colors">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Tattoo Price Calculator Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const sizeSlider = document.getElementById('sizeSlider');
+            const sizeValue = document.getElementById('sizeValue');
+            const colorSelect = document.getElementById('colorSelect');
+            const detailSlider = document.getElementById('detailSlider');
+            const detailValue = document.getElementById('detailValue');
+            const placementSelect = document.getElementById('placementSelect');
+            const basePrice = document.getElementById('basePrice');
+            const colorPrice = document.getElementById('colorPrice');
+            const detailPrice = document.getElementById('detailPrice');
+            const placementPrice = document.getElementById('placementPrice');
+            const totalPrice = document.getElementById('totalPrice');
+            
+            // Detail level mapping
+            const detailLevels = {
+                1: 'Sehr einfach',
+                2: 'Einfach',
+                3: 'Mittel',
+                4: 'Komplex',
+                5: 'Sehr komplex'
+            };
+            
+            function calculatePrice() {
+                // Base price calculation (size)
+                const size = parseInt(sizeSlider.value);
+                sizeValue.textContent = size + ' cm';
+                let basePriceValue = 50 + (size * 3);
+                basePrice.textContent = '€' + basePriceValue;
+                
+                // Color price calculation
+                let colorPriceValue = 0;
+                switch (colorSelect.value) {
+                    case 'black':
+                        colorPriceValue = 0;
+                        break;
+                    case 'blackGray':
+                        colorPriceValue = 20;
+                        break;
+                    case 'few':
+                        colorPriceValue = 40;
+                        break;
+                    case 'many':
+                        colorPriceValue = 70;
+                        break;
+                }
+                colorPrice.textContent = '€' + colorPriceValue;
+                
+                // Detail price calculation
+                const detail = parseInt(detailSlider.value);
+                detailValue.textContent = detailLevels[detail];
+                let detailPriceValue = detail * 10;
+                detailPrice.textContent = '€' + detailPriceValue;
+                
+                // Placement price calculation
+                let placementPriceValue = 0;
+                switch (placementSelect.value) {
+                    case 'standard':
+                        placementPriceValue = 0;
+                        break;
+                    case 'difficult':
+                        placementPriceValue = 30;
+                        break;
+                    case 'veryDifficult':
+                        placementPriceValue = 60;
+                        break;
+                }
+                placementPrice.textContent = '€' + placementPriceValue;
+                
+                // Calculate total
+                const total = basePriceValue + colorPriceValue + detailPriceValue + placementPriceValue;
+                totalPrice.textContent = '€' + total;
+            }
+            
+            // Event listeners
+            sizeSlider.addEventListener('input', calculatePrice);
+            colorSelect.addEventListener('change', calculatePrice);
+            detailSlider.addEventListener('input', calculatePrice);
+            placementSelect.addEventListener('change', calculatePrice);
+            
+            // Initial calculation
+            calculatePrice();
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDtrLm%2BHQUheJClm4rVfwSqR40cO9XwfE22gNyUkAhpuguXRZCOPJSVwvhzv25Q7H7bZQTZAeL68xHJxHusmEQpwNAKJMTGm7jXlaSriMpP0j0lbEHKI%2FEa2rFH99tsAgqy4EZbolLB982%2BSzjkVVpo1HClxj4b%2FjIa84ci3fdctrKFIPntPyI0XD8pVMfb7DTvW9zFCio3eoQferZcfMI6RfHW2xoXQn%2FlDTlsXNaCvrWlEMSdWWH1%2FLnlq%2F7ha4dhxFIHIz0Jouid6z4307K4qA55%2B3iXUaAfto5MO7bwkKOsD5vRPimOum2GJtDLRBEOe0LgJM8qItNPXxTnWc8B9peC%2FaQNysdvU6ldOp3mCsBBVzUvULtOrsBqk%2BKDP9qiHj%2BJNyaq2rNP0J1e2W8drV7%2B5ds3wcoEkTHJzsy3mSzGz4qO0rfoznS8pfs3WLv4aMjl%2Bp3VBUdMIOBX0Fi%2FqQt5U00wjMAew05KMB4sM0KwTQFCRabums%2BDt6l1OVXQ%3D%3D";
+        window.__genspark_locale = "de-DE";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDtrLm+HQUheJClm4rVfwSqR40cO9XwfE22gNyUkAhpuguXRZCOPJSVwvhzv25Q7H7bZQTZAeL68xHJxHusmEQpwNAKJMTGm7jXlaSriMpP0j0lbEHKI/Ea2rFH99tsAgqy4EZbolLB982+SzjkVVpo1HClxj4b/jIa84ci3fdctrKFIPntPyI0XD8pVMfb7DTvW9zFCio3eoQferZcfMI6RfHW2xoXQn/lDTlsXNaCvrWlEMSdWWH1/Lnlq/7ha4dhxFIHIz0Jouid6z4307K4qA55+3iXUaAfto5MO7bwkKOsD5vRPimOum2GJtDLRBEOe0LgJM8qItNPXxTnWc8B9peC/aQNysdvU6ldOp3mCsBBVzUvULtOrsBqk+KDP9qiHj+JNyaq2rNP0J1e2W8drV7+5ds3wcoEkTHJzsy3mSzGz4qO0rfoznS8pfs3WLv4aMjl+p3VBUdMIOBX0Fi/qQt5U00wjMAew05KMB4sM0KwTQFCRabums+Dt6l1OVXQ==";
+    </script>
+    
+        <script id="html_badge_script2" src="https://www.genspark.ai/html_badge.js"></script>
+        
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
